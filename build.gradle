@@ -1,0 +1,63 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '2.7.15'
+}
+
+repositories {
+    mavenCentral()
+}
+
+bootJar.enabled = false
+
+subprojects {
+    group = 'com.example'
+    version = '0.0.1-SNAPSHOT'
+    sourceCompatibility = '17'
+
+    apply plugin: 'java'
+    apply plugin: 'java-library'
+    apply plugin: 'org.springframework.boot'
+    apply plugin: 'io.spring.dependency-management'
+
+    configurations {
+        compileOnly {
+            extendsFrom annotationProcessor
+        }
+    }
+
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        // lombok
+        compileOnly 'org.projectlombok:lombok'
+        annotationProcessor 'org.projectlombok:lombok'
+
+        // jpa
+        implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+        // h2
+        runtimeOnly 'com.h2database:h2'
+
+        // spring security
+        implementation 'org.springframework.boot:spring-boot-starter-security'
+    }
+
+    test {
+        useJUnitPlatform()
+    }
+}
+
+project(':database') {
+    dependencies {
+        bootJar {enabled = false}
+        jar {enabled = true}
+    }
+}
+
+project(':session') {
+    dependencies {
+        compileOnly project(':database')
+    }
+}
