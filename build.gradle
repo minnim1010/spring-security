@@ -56,8 +56,15 @@ project(':database') {
     }
 }
 
+project(':formlogin') {
+    dependencies {
+        compileOnly project(':database')
+    }
+}
+
 project(':session') {
     dependencies {
         compileOnly project(':database')
     }
 }
+
