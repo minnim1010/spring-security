@@ -1,9 +1,0 @@
-### 1. 회원 가입
-POST http://localhost:8080/api/members
-Content-Type: application/json
-
-{
-  "username": "httpTestUser",
-  "password": "password",
-  "authority": "ROLE_USER"
-}

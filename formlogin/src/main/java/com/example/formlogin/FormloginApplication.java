@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages ={"com.example.database", "com.example.formlogin"})
 @EntityScan(basePackages = {"com.example.database"})
 @EnableJpaRepositories(basePackages = {"com.example.database"})
 public class FormloginApplication {

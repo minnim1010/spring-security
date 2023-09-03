@@ -1,4 +1,4 @@
-package com.example.formlogin.service;
+package com.example.database.member.service;
 
 import com.example.database.member.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
