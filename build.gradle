@@ -62,7 +62,7 @@ project(':formlogin') {
     }
 }
 
-project(':session') {
+project(':rest-jwt') {
     dependencies {
         compileOnly project(':database')
     }

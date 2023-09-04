@@ -1,4 +1,4 @@
-package com.example.formlogin;
+package com.example.database;
 
 import com.example.database.member.entity.Authority;
 import com.example.database.member.entity.Member;

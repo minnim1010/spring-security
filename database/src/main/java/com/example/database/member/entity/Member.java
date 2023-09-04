@@ -1,6 +1,7 @@
 package com.example.database.member.entity;
 
 import lombok.Builder;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 import org.springframework.security.core.GrantedAuthority;
@@ -15,6 +16,7 @@ import java.util.List;
 @NoArgsConstructor
 @Entity
 public class Member implements UserDetails {
+    @Getter
     @Id @GeneratedValue
     private Long id;
 
@@ -26,7 +28,8 @@ public class Member implements UserDetails {
     private Authority authority;
 
     @Builder
-    private Member(String username, String password, Authority authority) {
+    private Member(Long id, String username, String password, Authority authority) {
+        this.id = id;
         this.username = username;
         this.password = password;
         this.authority = authority;

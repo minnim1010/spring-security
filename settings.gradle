@@ -1,4 +1,4 @@
 rootProject.name = 'auth'
 include 'database'
 include 'formlogin'
-include 'session'
+include 'rest-jwt'

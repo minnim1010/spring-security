@@ -1,4 +1,4 @@
-package com.example.formlogin.controller;
+package com.example.formlogin;
 
 import com.example.database.member.entity.Member;
 import lombok.RequiredArgsConstructor;
