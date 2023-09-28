@@ -22,17 +22,27 @@ public class Member implements UserDetails {
 
     private String username;
 
+    private String oauth2Name;
+
     private String password;
+
+    private String email;
+
+    private boolean enable;
 
     @Enumerated(EnumType.STRING)
     private Authority authority;
 
     @Builder
-    private Member(Long id, String username, String password, Authority authority) {
+    private Member(Long id, String username, String oauth2Name,
+                   String password, String email, Authority authority, boolean enable) {
         this.id = id;
         this.username = username;
+        this.oauth2Name = oauth2Name;
         this.password = password;
+        this.email = email;
         this.authority = authority;
+        this.enable = enable;
     }
 
     @Override
@@ -50,6 +60,19 @@ public class Member implements UserDetails {
     @Override
     public String getUsername() {
         return username;
+    }
+
+    public String getOauth2Name() {
+        return oauth2Name;
+    }
+
+    public Member updateOauth2Name(String oauth2Name) {
+        this.oauth2Name = oauth2Name;
+        return this;
+    }
+
+    public String getEmail() {
+        return email;
     }
 
     @Override

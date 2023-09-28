@@ -2,3 +2,5 @@ rootProject.name = 'auth'
 include 'database'
 include 'formlogin'
 include 'rest-jwt'
+include 'oauth2'
+

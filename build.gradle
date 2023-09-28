@@ -68,3 +68,8 @@ project(':rest-jwt') {
     }
 }
 
+project(':oauth2') {
+    dependencies {
+        compileOnly project(':database')
+    }
+}
