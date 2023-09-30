@@ -5,6 +5,8 @@ import org.springframework.util.SerializationUtils;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 
 public class CookieUtil {
@@ -13,7 +15,9 @@ public class CookieUtil {
     }
 
     public static void addCookie(HttpServletResponse response, String name, String value, int maxAge) {
-        Cookie cookie = new Cookie(name, value);
+        String encodedValue = URLEncoder.encode(value, StandardCharsets.UTF_8)
+            .replace("+", "%20");
+        Cookie cookie = new Cookie(name, encodedValue);
         cookie.setPath("/");
         cookie.setMaxAge(maxAge);
 
