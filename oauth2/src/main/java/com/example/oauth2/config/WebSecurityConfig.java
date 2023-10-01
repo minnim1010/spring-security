@@ -6,6 +6,7 @@ import com.example.oauth2.jwt.JwtProvider;
 import com.example.oauth2.oauth.OAuth2AuthorizationRequestBasedOnCookieRepository;
 import com.example.oauth2.oauth.OAuth2SuccessHandler;
 import com.example.oauth2.oauth.OAuth2UserService;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;
@@ -36,12 +37,8 @@ public class WebSecurityConfig {
     private final JwtProvider jwtProvider;
     private final OAuth2UserService oAuth2UserService;
     private final MemberRepository memberRepository;
-
-//    @Bean
-//    public WebSecurityCustomizer configure() {
-//        return web -> web.ignoring()
-//            .requestMatchers(toH2Console());
-//    }
+    private final ObjectMapper objectMapper;
+    
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
@@ -116,6 +113,7 @@ public class WebSecurityConfig {
     public OAuth2SuccessHandler oAuth2SuccessHandler() {
         return new OAuth2SuccessHandler(jwtProvider,
             oAuth2AuthorizationRequestBasedOnCookieRepository(),
-            memberRepository);
+            memberRepository,
+            objectMapper);
     }
 }

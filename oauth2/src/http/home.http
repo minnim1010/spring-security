@@ -1,17 +1,17 @@
 ### 1. home with token
-GET http://localhost:8080/
+GET http://localhost:8081/
 Authorization: {{ token }}
 
 ### 2. user with token
-GET http://localhost:8080/user
+GET http://localhost:8081/user
 Authorization: {{ token }}
 
 ### 2-1. user
-GET http://localhost:8080/user
+GET http://localhost:8081/user
 
 ### 3. admin with token
-GET http://localhost:8080/admin
+GET http://localhost:8081/admin
 Authorization: {{ token }}
 
 ### 3. admin
-GET http://localhost:8080/admin
+GET http://localhost:8081/admin
